@@ -5,20 +5,51 @@
     <title>Title</title>
 </head>
 <body>
-     <script>
-         function kiemtrasonguyento(x) {
-             for(let i=2;i<Math.sqrt(x);i++){
-                 if(x%i===0)
-                     return 0;
-                 return 1;
-             }
-         }
-         document.write("danh sách số nguyên tố: 2");
-         for(let i=1;i<20;i++){
-             if(kiemtrasonguyento(i)){
-                 document.write(" "+i);
-             }
-         }
-     </script>
+<script>
+    let b=prompt("Nhập số:")
+    var a =[];
+    function kiem_tra_snt(n)
+    {
+        // Biến cờ hiệu
+        var flag = true;
+        // Nếu n bé hơn 2 tức là không phải số nguyên tố
+        if (n < 2){
+            flag = false;
+        }
+        else if (n == 2){
+            flag = true;
+        }
+        else if (n % 2 == 0){
+            flag = false;
+        }
+        else{
+            // lặp từ 3 tới n-1 với bước nhảy là 2 (i+=2)
+            for (var i = 3; i < n-1; i+=2)
+            {
+                if (n % i == 0){
+                    flag = false;
+                    break;
+                }
+            }
+        }
+        // Kiểm tra biến flag
+        if (flag == true){
+            a.push(n);
+
+        }
+    }
+    for (let i = 0 ; i<1000 ; i++){
+        kiem_tra_snt(i);
+        if (a.length == b){
+            break;
+        }
+    }
+    if (a.length==b){
+        alert(a)
+
+    } else {
+        alert("ko du")
+    }
+    </script>
 </body>
 </html>
